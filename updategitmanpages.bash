@@ -2,6 +2,7 @@
 
 # Downloads and installs specified version of Git manpages to /usr/local/gitmanpages.
 # WARNING NOTE: This script DELETES any previous content in '/usr/local/gitmanpages'.
+# This script does not set $MANPATH, it only downloads the man files.
 #
 # Set $NEWGITMANPAGES variable before run.
 # Run example:
