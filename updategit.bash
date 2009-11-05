@@ -14,6 +14,11 @@ if [[ "$NEWGIT" != git* ]]; then
 	exit 1
 fi
 
+if [ -d "/usr/local/$NEWGIT" ]; then
+	echo "/usr/local/$NEWGIT already exists."
+	exit 1
+fi
+
 # Download Git
 echo 'Downloading Git...'
 curl -O "http://www.kernel.org/pub/software/scm/git/$NEWGIT.tar.gz" || exit 1
