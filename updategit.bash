@@ -44,7 +44,7 @@ sudo make install || exit 1
 
 # Remove source files
 echo 'Removing Git source files...'
-popd
+popd > /dev/null 2>&1
 rm -rf "$NEWGIT" || exit 1
 
 # Update Git symlink

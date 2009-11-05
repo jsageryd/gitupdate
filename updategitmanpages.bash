@@ -36,5 +36,5 @@ echo 'Removing tarball...'
 sudo rm "$NEWGITMANPAGES.tar.gz" || exit 1
 
 # Done
-popd
+popd > /dev/null 2>&1
 echo "Git man pages updated."
