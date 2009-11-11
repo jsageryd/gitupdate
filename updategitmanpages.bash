@@ -16,7 +16,7 @@ fi
 
 # Remove old directory
 echo 'Removing /usr/local/gitmanpages ...'
-sudo rm -rf /usr/local/gitmanpages
+[ -d /usr/local/gitmanpages ] && sudo rm -rf /usr/local/gitmanpages
 
 # Create new directory
 echo 'Creating new /usr/local/gitmanpages ...'
