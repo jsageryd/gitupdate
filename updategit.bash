@@ -15,7 +15,14 @@ if [[ "$NEWGIT" != git* ]]; then
 fi
 
 if [ -d "/usr/local/$NEWGIT" ]; then
-	echo "/usr/local/$NEWGIT already exists."
+	echo -n "/usr/local/$NEWGIT already exists"
+	if [ "/usr/local/$NEWGIT" = "$(readlink /usr/local/git)" ]; then
+		echo " and the symlink is already set up."
+	else
+		# Update Git symlink
+		sudo ln -fhs /usr/local/"$NEWGIT" /usr/local/git || exit 1
+		echo ". Symlink updated."
+	fi
 	exit 1
 fi
 
