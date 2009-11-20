@@ -20,7 +20,7 @@ if [ -d "/usr/local/$NEWGIT" ]; then
 		echo " and the symlink is already set up."
 	else
 		# Update Git symlink
-		sudo ln -fhs /usr/local/"$NEWGIT" /usr/local/git || exit 1
+		sudo ln -fhs /usr/local/"$NEWGIT" /usr/local/git || (echo && exit 1)
 		echo ". Symlink updated."
 	fi
 	exit 1
