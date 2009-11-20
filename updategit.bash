@@ -49,8 +49,7 @@ rm -rf "$NEWGIT" || exit 1
 
 # Update Git symlink
 echo 'Updating symlink /usr/local/git ...'
-sudo rm /usr/local/git
-sudo ln -s /usr/local/"$NEWGIT" /usr/local/git || exit 1
+sudo ln -fhs /usr/local/"$NEWGIT" /usr/local/git || exit 1
 
 # Create /etc/paths.d/git
 echo 'Setting path in /etc/paths.d/git ...'
