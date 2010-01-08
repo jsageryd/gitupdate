@@ -15,12 +15,14 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
+# Check that the env var is properly set
 if [[ "$NEWGIT" != git* ]]; then
 	echo "\$NEWGIT var not set. Run example:"
 	echo "NEWGIT=git-1.6.5 ./updategit.bash"
 	exit 1
 fi
 
+# Check the symlink
 if [ -d "/usr/local/$NEWGIT" ]; then
 	echo -n "/usr/local/$NEWGIT already exists"
 	if [ "/usr/local/$NEWGIT" = "$(readlink /usr/local/git)" ]; then
