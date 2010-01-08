@@ -8,6 +8,13 @@
 # Run example:
 # $ NEWGIT=git-1.6.5 ./updategit.bash
 
+# Check that make exists
+which make > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+	echo "'make' not found. Install dev tools first."
+	exit 1
+fi
+
 if [[ "$NEWGIT" != git* ]]; then
 	echo "\$NEWGIT var not set. Run example:"
 	echo "NEWGIT=git-1.6.5 ./updategit.bash"
