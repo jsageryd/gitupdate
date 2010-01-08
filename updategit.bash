@@ -5,8 +5,9 @@
 #
 # Creates path and manpath in /etc/paths.d and /etc/manpaths.d/
 # Set $NEWGIT variable before run.
-# Run example:
-# $ NEWGIT=git-1.6.5 ./updategit.bash
+# Run examples:
+# $ ./updategit.bash git-1.6.6
+# $ NEWGIT=git-1.6.6 ./updategit.bash
 
 # Check that make exists
 which make > /dev/null 2>&1
@@ -15,10 +16,15 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
+# Use $1 as $NEWGIT if set
+if [ ! -z "${1}" ]; then
+	NEWGIT="${1}"
+fi
+
 # Check that the env var is properly set
 if [[ "$NEWGIT" != git* ]]; then
-	echo "\$NEWGIT var not set. Run example:"
-	echo "NEWGIT=git-1.6.5 ./updategit.bash"
+	echo "Git version not properly specified. Example:"
+	echo "./updategit.bash git-1.6.6"
 	exit 1
 fi
 

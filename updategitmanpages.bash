@@ -5,13 +5,19 @@
 # This script does not set $MANPATH, it only downloads the man files.
 #
 # Set $NEWGITMANPAGES variable before run.
-# Run example:
-# $ NEWGITMANPAGES=git-manpages-1.6.5 ./updategitmanpages.bash
+# Run examples:
+# $ ./updategitmanpages.bash git-manpages-1.6.6
+# $ NEWGITMANPAGES=git-manpages-1.6.6 ./updategitmanpages.bash
+
+# Use $1 as $NEWGITMANPAGES if set
+if [ ! -z "${1}" ]; then
+	NEWGITMANPAGES="${1}"
+fi
 
 # Check that the env var is properly set
 if [[ "$NEWGITMANPAGES" != git* ]]; then
-	echo "\$NEWGITMANPAGES var not set. Run example:"
-	echo "NEWGITMANPAGES=git-manpages-1.6.5 ./updategitmanpages.bash"
+	echo "Git manpage version not properly specified. Example:"
+	echo "./updategitmanpages.bash git-manpages-1.6.6"
 	exit 1
 fi
 
