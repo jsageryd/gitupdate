@@ -8,6 +8,7 @@
 # Run example:
 # $ NEWGITMANPAGES=git-manpages-1.6.5 ./updategitmanpages.bash
 
+# Check that the env var is properly set
 if [[ "$NEWGITMANPAGES" != git* ]]; then
 	echo "\$NEWGITMANPAGES var not set. Run example:"
 	echo "NEWGITMANPAGES=git-manpages-1.6.5 ./updategitmanpages.bash"
