@@ -6,6 +6,14 @@ Scripts to install or update Git and Git man pages on OS X Snow Leopard.
 Usage
 ------------------
 
+### gitupdate.bash
+
+Runs `./updategitmanpages.bash` and `./updategit.bash`.
+
+Example:
+	$ ./gitupdate.bash 1.7.4
+
+
 ### updategit.bash
 
 Downloads the specified Git version (`$NEWGIT`), compiles and installs it to `/usr/local/$NEWGIT`,
