@@ -3,7 +3,6 @@
 # Downloads and installs specified version of Git to /usr/local/git-version,
 # and symlinks /usr/local/git -> /usr/local/git-version.
 #
-# Creates path and manpath in /etc/paths.d and /etc/manpaths.d/
 # Set $NEWGIT variable before run.
 # Run examples:
 # $ ./updategit.bash git-1.6.6
@@ -72,15 +71,6 @@ rm -rf "$NEWGIT" || exit 1
 # Update Git symlink
 echo 'Updating symlink /usr/local/git ...'
 sudo ln -fhs /usr/local/"$NEWGIT" /usr/local/git || exit 1
-
-# Create /etc/paths.d/git
-echo 'Setting path in /etc/paths.d/git ...'
-echo '/usr/local/git/bin' | sudo tee /etc/paths.d/git || exit 1
-
-# Create /etc/manpaths.d/git
-echo 'Setting paths in /etc/manpaths.d/git ...'
-echo '/usr/local/git/share/man' | sudo tee /etc/manpaths.d/git || exit 1
-echo '/usr/local/gitmanpages' | sudo tee -a /etc/manpaths.d/git || exit 1
 
 # Done
 which -s git

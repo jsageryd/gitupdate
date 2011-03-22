@@ -41,16 +41,9 @@ Example:
 Note
 ------------------
 
-For `$MANPATH` to be correctly set from `/etc/manpaths.d/*` on OS X Snow Leopard, I have added the following to my `.profile`:
-
-	# Make path_helper set MANPATH from /etc/manpaths.d/*
-
-	export MANPATH=
-	if [ -x /usr/libexec/path_helper ]; then
-		eval `/usr/libexec/path_helper -s`
-	fi
-
-Without this, `$MANPATH` will not be set, and the manpages in `/usr/local/gitmanpages/` may not be found.
+Be sure to set `$PATH` and `$MANPATH`:
+	export PATH=/usr/local/git/bin:$PATH
+	export MANPATH=/usr/local/git/share/man:/usr/local/gitmanpages:$MANPATH
 
 
 Disclaimer
